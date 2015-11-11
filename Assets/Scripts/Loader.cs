@@ -10,5 +10,6 @@ public class Loader : MonoBehaviour {
 		if (GameManager.instance == null) {
 			Instantiate(game_mgr);
 		}
+
 	}
 }
