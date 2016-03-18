@@ -4,7 +4,9 @@
 		"**/.DS_Store":true,
 		"**/.git":true,
 		"**/.gitignore":true,
+		"**/.gitattributes":true,
 		"**/.gitmodules":true,
+		"**/.svn":true,
 		"**/*.booproj":true,
 		"**/*.pidb":true,
 		"**/*.suo":true,
@@ -49,7 +51,12 @@
 		"library/":true,
 		"obj/":true,
 		"Obj/":true,
-		"ProjectSettings/":true,		"temp/":true,
-		"Temp/":true
+		"ProjectSettings/":true,
+		"temp/":true,
+		"Temp/":true,
+        "Ani/":true,
+        "Animations/":true,
+        "Audio/":true,
+        "Material":true
 	}
 }
