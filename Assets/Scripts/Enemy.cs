@@ -6,13 +6,14 @@ public class Enemy : MovingObj {
     public int playerDamage;
     
     private Animator animator;
-    private bool skipMove;
+    public bool skipMove = false;// cant understand
     private Transform target;
     
     private Player p;
     
 	// Use this for initialization
 	protected override void Start () {
+        GameMgr.instance.AddEnemyToList(this);
 	    animator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
        
@@ -48,6 +49,8 @@ public class Enemy : MovingObj {
     
     protected override void OnCantMove <T> (T component){
         Player hitPlayer = component as Player;
+        animator.SetTrigger("enemyAtk");
         hitPlayer.LoseFood(this.playerDamage);
+        target.Translate(-1f, 0f, 0f);
     }
 }

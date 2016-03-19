@@ -78,7 +78,7 @@ public class BoardMgr : MonoBehaviour {
         InitList();
         LayoutObjectAtRandom(brickTiles,brickNum.minimum,brickNum.maximum);
         LayoutObjectAtRandom(foodTiles,foodNum.minimum,foodNum.maximum);
-        int enemyNum = (int)Mathf.Log(level,2f);
+        int enemyNum = (int)Mathf.Log(level*level,2f);
         // Mathf.Log returns a float.
         //notice that enemy's count is raised with the level
         LayoutObjectAtRandom(enemyTiles,enemyNum,enemyNum+1);

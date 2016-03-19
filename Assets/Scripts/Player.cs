@@ -11,7 +11,7 @@ public class Player : MovingObj {
     private Animator animator;
     private int food;
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
 	    animator = GetComponent<Animator>();
         food = GameMgr.instance.playerFoodPoints;
         base.Start();
@@ -28,7 +28,7 @@ public class Player : MovingObj {
         horizontal = (int) Input.GetAxisRaw("Horizontal");
         vertical  = (int) Input.GetAxisRaw("Vertical");
         
-        // if(horizontal!=0) vertical=0;
+        if(horizontal!=0) vertical=0;
         if(horizontal!=0 || vertical !=0){
             AttemptMove<Brick>(horizontal,vertical);
         }
@@ -37,7 +37,7 @@ public class Player : MovingObj {
     protected override void AttemptMove <T>(int xDir,int yDir){
         food --;
         base.AttemptMove <T> (xDir,yDir);
-        RaycastHit2D hit;
+        // RaycastHit2D hit;
         CheckIfGameOver();
         GameMgr.instance.playersTurn = false;
         
