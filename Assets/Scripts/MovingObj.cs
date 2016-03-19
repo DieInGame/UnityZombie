@@ -48,8 +48,8 @@ public abstract class MovingObj : MonoBehaviour {
             // notice: yield returns data when it is shown but not break the loop
         }
     }
-	
-    protected virtual void AttemptMove <T>(int xDir,int yDir)
+	//T is hit gameobj type
+    protected virtual void AttemptMove <T>(int xDir,int yDir) 
     where T: Component {//I think it should be GameObject;
         RaycastHit2D hit;
         bool canMove = Move(xDir,yDir,out hit);//Pay attention to the hit

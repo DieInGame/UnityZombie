@@ -51,12 +51,7 @@
 		"library/":true,
 		"obj/":true,
 		"Obj/":true,
-		"ProjectSettings/":true,
-		"temp/":true,
-		"Temp/":true,
-        "Ani/":true,
-        "Animations/":true,
-        "Audio/":true,
-        "Material":true
+		"ProjectSettings/":true,		"temp/":true,
+		"Temp/":true
 	}
 }

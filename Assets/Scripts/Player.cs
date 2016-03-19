@@ -39,7 +39,7 @@ public class Player : MovingObj {
         base.AttemptMove <T> (xDir,yDir);
         RaycastHit2D hit;
         CheckIfGameOver();
-        // GameMgr.instance.playersTurn = false;
+        GameMgr.instance.playersTurn = false;
         
     }
     
@@ -74,7 +74,8 @@ public class Player : MovingObj {
     //when meet enemy
     public void LoseFood(int loss){
         food -= loss;
-        animator.SetTrigger("PlayerHit");
+        animator.SetTrigger("playerHit");
+        // add back animation here.
         CheckIfGameOver();
     }
     
