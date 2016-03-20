@@ -12,13 +12,15 @@ public class Enemy : MovingObj {
     private Player p;
     
 	// Use this for initialization
-	protected override void Start () {
+	protected override void Awake () {
         GameMgr.instance.AddEnemyToList(this);
 	    animator = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-       
-        base.Start();	
+        
+        base.Awake();	
 	}
+    protected override void Start(){
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     
     protected override void AttemptMove <T> (int xDir, int yDir){
         if(skipMove){

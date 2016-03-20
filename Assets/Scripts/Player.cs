@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MovingObj {
     
@@ -10,18 +12,27 @@ public class Player : MovingObj {
     
     private Animator animator;
     private int food;
+    
+    public Text foodText;
 	// Use this for initialization
-	protected override void Start () {
+	protected override void Awake () {
 	    animator = GetComponent<Animator>();
-        food = GameMgr.instance.playerFoodPoints;
-        base.Start();
+        //food = GameMgr.instance.playerFoodPoints;
+        foodText.text = "Food :" +food;
+        
+        base.Awake();
 	}
 	
+    protected override void Start(){
+        food = GameMgr.instance.playerFoodPoints;
+    }
+    
     private void OnDisable(){
         GameMgr.instance.playerFoodPoints = food;
     } 
 	// Update is called once per frame
 	void Update () {
+        foodText.text = "Food :" +food;
 	    if(!GameMgr.instance.playersTurn) return;
         int vertical =0;
         int horizontal=0;
@@ -68,7 +79,8 @@ public class Player : MovingObj {
     }
     
     private void Restart(){
-        Application.LoadLevel(Application.loadedLevel);
+        // Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene("sample",LoadSceneMode.Single);
     }
     
     //when meet enemy

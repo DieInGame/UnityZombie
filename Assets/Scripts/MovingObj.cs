@@ -13,11 +13,12 @@ public abstract class MovingObj : MonoBehaviour {
      
     
 	// Use this for initialization
-	protected virtual void Start () {
+	protected virtual void Awake () {
         box = GetComponent<BoxCollider2D>();
         rb2D= GetComponent<Rigidbody2D>();
         inverseMoveTime = 1f/moveTime;
 	}
+    protected abstract void Start();
 	
     protected bool Move (int xDir, int yDir,out RaycastHit2D hit){
         Vector2 start = transform.position;

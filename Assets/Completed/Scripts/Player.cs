@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;	//Allows us to use UI.
+using UnityEngine.SceneManagement;
 
 namespace Completed
 {
@@ -220,7 +221,7 @@ namespace Completed
 		private void Restart ()
 		{
 			//Load the last scene loaded, in this case Main, the only scene in the game.
-			Application.LoadLevel (Application.loadedLevel);
+			SceneManager.LoadScene("Main",LoadSceneMode.Single);
 		}
 		
 		
