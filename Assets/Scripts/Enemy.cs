@@ -8,14 +8,13 @@ public class Enemy : MovingObj {
     private Animator animator;
     public bool skipMove = false;// cant understand
     private Transform target;
-    
-    private Player p;
+   
     
 	// Use this for initialization
 	protected override void Awake () {
         GameMgr.instance.AddEnemyToList(this);
 	    animator = GetComponent<Animator>();
-        
+        // target = GameObject.FindGameObjectWithTag("Player").transform;
         base.Awake();	
 	}
     protected override void Start(){

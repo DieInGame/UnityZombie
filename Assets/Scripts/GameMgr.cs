@@ -15,7 +15,7 @@ public class GameMgr : MonoBehaviour {
     [HideInInspector] public bool playersTurn = true;
     public float turnDelay =.1f;
     public float levelStartDelay = 2f;
-    private int level = 3;
+    private int level = 1;
     
     private Text levelText;
     private GameObject levelImage;
@@ -31,20 +31,20 @@ public class GameMgr : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
         
-         bdmgrScript = GetComponent<BoardMgr>();
-         InitGame();
+         bdmgrScript = GetComponent<BoardMgr>();         
     }
     
-    // It will be Obsolete
-    // void OnLevelWasLoaded(int index){
-    //     level ++;
-    //     Debug.Log(level);
-    //     InitGame();
-    // }
+    // It will be Obsolete.
+    // Every time reloading this level will call Start again.
+    void OnLevelWasLoaded(int index){
+        level ++;
+        Debug.Log(level);
+        Start();
+    }
    
     
 	// Use this for initialization
-	void InitGame () {
+	void Start () {
      
         doingSetup = true;
         levelImage = GameObject.Find("Image");

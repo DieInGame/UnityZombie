@@ -18,6 +18,7 @@ public abstract class MovingObj : MonoBehaviour {
         rb2D= GetComponent<Rigidbody2D>();
         inverseMoveTime = 1f/moveTime;
 	}
+    
     protected abstract void Start();
 	
     protected bool Move (int xDir, int yDir,out RaycastHit2D hit){
